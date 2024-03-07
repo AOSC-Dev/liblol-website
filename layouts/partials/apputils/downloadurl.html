@@ -1,5 +1,1 @@
-{{- if .Params.downloadUrl -}}
-    {{- .Params.downloadUrl -}}
-{{- else -}}
-    http://app.loongapps.cn/#/detail/{{ .Params.id }}
-{{- end -}}
+{{ return default .Params.downloadUrl (printf "http://app.loongapps.cn/#/detail/%d" .Params.id) }}

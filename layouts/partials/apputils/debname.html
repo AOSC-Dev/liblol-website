@@ -1,1 +1,1 @@
-{{ index (split .Params.debName "/" | last 1) 0  | safeHTML -}}
+{{ return index (split .Params.debName "/" | last 1) 0 -}}
