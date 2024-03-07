@@ -10,7 +10,7 @@ weight: 1
 
 ### AOSC OS
 
-AOSC OS 在官方仓库提供 libLoL，使用如下命令安装即可使用：
+AOSC OS 在主软件仓库提供 libLoL，使用如下命令安装即可使用：
 
 ```
 oma install liblol
@@ -32,7 +32,7 @@ sudo apt install ./liblol_0.1.4-1_loong64.deb
 
 ### Loong Arch Linux
 
-Loong Arch Linux 在官方仓库提供 libLoL，使用如下命令即可安装：
+Loong Arch Linux 在其软件仓库中提供 libLoL，使用如下命令即可安装：
 
 ```
 sudo pacman -S la_ow_syscall-dkms liblol

@@ -40,7 +40,7 @@
 {{ define "partials/appInfo"}}
     <span>版本：{{ .Params.version }}</span> |
     <span>更新时间：<span class="utctime">{{ .Params.updateTime }}</span></span> |
-    <span><a href="{{ partial "apputils/downloadurl" . }}" target="_blank" rel="noopener">官方下载页面</a></span> |
+    <span><a href="{{ partial "apputils/downloadurl" . }}" target="_blank" rel="noopener">下载页面</a></span> |
     <span>兼容性：{{ partial "apputils/compatibility" . }}</span>
 {{ end }}
 {{ define "partials/compatibility"}}
@@ -49,7 +49,7 @@
         (dict "type" "error" "content" "该软件不能被 libLoL 兼容")
         (dict "type" "info" "content" "该软件部分功能不可用或存在问题")
         (dict "type" "nil")
-        (dict "type" "missing" "content" "该软件存在新世界版本，请查询发行版官方仓库或软件商店")
+        (dict "type" "missing" "content" "该软件存在新世界版本，请查询发行版软件仓库或软件商店")
     )}}
     {{ if not (eq "nil" (index (index $map (int .Params.compatibility) "type"))) }}
         {{ partial "callout" (index $map (int .Params.compatibility)) }}
