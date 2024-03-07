@@ -1,6 +1,16 @@
+{{ if (not (eq (int .Params.compatibility) 4) )}}
 1. 从 [{{ partial "apputils/downloadurl" . }}]({{ partial "apputils/downloadurl" . }}) 下载软件包
 2. 安装软件包
 
    ```bash
    oma install "{{ partial "apputils/debname" . | safeHTML }}"
    ```
+{{ else if (index .Params "x-aosc-pkg-name") }}
+请使用如下命令安装社区提供的软件包：
+
+```bash
+oma install "{{ index .Params "x-aosc-pkg-name" | safeHTML}}"
+```
+{{ else }}
+暂无
+{{ end }}
