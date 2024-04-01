@@ -30,6 +30,49 @@ sudo apt install ./liblol-dkms_0.1.0_loong64.deb
 sudo apt install ./liblol_0.1.4-1_loong64.deb
 ```
 
+### Gentoo
+
+目前，libLoL 的打包工作在 [`gentoo-zh` overlay](https://github.com/microcai/gentoo-zh)
+进行。如果您尚未引入此 overlay，可执行以下命令配置：
+
+```shell-session
+# eselect repository enable gentoo-zh
+# emerge --sync
+```
+
+如果您不想放行 overlay 中的其他包，可以配置仅允许 libLoL 相关的包：
+
+```
+# /etc/portage/package.mask
+*/*::gentoo-zh
+
+# /etc/portage/package.unmask
+app-emulation/la-ow-syscall::gentoo-zh
+app-emulation/liblol::gentoo-zh
+app-emulation/liblol-glibc::gentoo-zh
+app-emulation/liblol-libxcrypt::gentoo-zh
+virtual/loong-ow-compat::gentoo-zh
+```
+
+后续对于 `RDEPEND` 内含 `virtual/loong-ow-compat` 标记的软件包，直接安装即可。libLoL
+会被拉入依赖关系图，从而受到 Portage 自动管理，无需手工干预。
+
+如您确有需要显式安装、手工管理 libLoL，也可执行如下命令实现：
+
+```shell-session
+# emerge app-emulation/liblol
+```
+
+由于不同发行版的目录布局各异，不同发行版上的 libLoL 库搜索路径之间也存在不同。Gentoo
+的 `loong` LP64D profiles 上，libLoL 的库搜索路径如下：
+
+|加载阶段|路径（从上到下顺序搜索）|
+|:------:|:---|
+|优先|<ul><li><code>/opt/lol/local/lib64/preload</code></li><li><code>/opt/lol/lib64/preload</code></li></ul>|
+|正常|<ul><li><code>/opt/lol/local/lib64</code></li><li><code>/opt/lol/lib64</code></li></ul>|
+
+其中带有 `local` 字样的目录可供用户自助放置一些库文件，以便绕过个别应用所存在的问题。
+
 ### Loong Arch Linux
 
 Loong Arch Linux 在其软件仓库中提供 libLoL，使用如下命令即可安装：

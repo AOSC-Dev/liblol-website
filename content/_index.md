@@ -14,6 +14,7 @@ libLoL (LoongArch on LoongArch) 是一款用于提供旧世界 ABI 兼容性的�
 {{< cards >}}
 {{< card link="/docs/usage/#aosc-os" title="AOSC OS" icon="aosc-os-no-padding" >}}
 {{< card link="/docs/usage/#debian" title="Debian" icon="debian" >}}
+{{< card link="/docs/usage/#gentoo" title="Gentoo" icon="gentoo" >}}
 {{< card link="/docs/usage/#loong-arch-linux" title="Loong Arch Linux" icon="archlinux" >}}
 {{< /cards >}}
 
