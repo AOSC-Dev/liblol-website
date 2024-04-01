@@ -30,6 +30,17 @@ sudo apt install ./liblol-dkms_0.1.0_loong64.deb
 sudo apt install ./liblol_0.1.4-1_loong64.deb
 ```
 
+由于不同发行版的目录布局各异，不同发行版上的 libLoL 库搜索路径之间也存在不同。Debian 上 libLoL 的库搜索路径如下：
+
+<!-- see https://github.com/AOSC-Dev/liblol/blob/debian/v0.1.5_pre6-1/debian/rules -->
+
+|加载阶段|路径（从上到下顺序搜索）|
+|:------:|:---|
+|优先|<ul><li><code>/usr/local/lib/loongarch64-debian-linux-gnuow/preload</code></li><li><code>/usr/lib/loongarch64-debian-linux-gnuow/preload</code></li></ul>|
+|正常|<ul><li><code>/usr/local/lib/loongarch64-debian-linux-gnuow</code></li><li><code>/usr/lib/loongarch64-debian-linux-gnuow</code></li></ul>|
+
+其中带有 `local` 字样的目录可供用户自助放置一些库文件，以便绕过个别应用所存在的问题。
+
 ### Gentoo
 
 目前，libLoL 的打包工作在 [`gentoo-zh` overlay](https://github.com/microcai/gentoo-zh)
