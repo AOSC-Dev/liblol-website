@@ -16,6 +16,17 @@ AOSC OS 在主软件仓库提供 libLoL，使用如下命令安装即可使用�
 oma install liblol
 ```
 
+由于不同发行版的目录布局各异，不同发行版上的 libLoL 库搜索路径之间也存在不同。AOSC OS 上 libLoL 的库搜索路径如下：
+
+<!-- see https://github.com/AOSC-Dev/liblol/blob/v0.1.5_pre6/autobuild/build -->
+
+|加载阶段|路径（从上到下顺序搜索）|
+|:------:|:---|
+|优先|<ul><li><code>/opt/lol/local/preload-lib</code></li><li><code>/opt/lol/support/lib/loongarch64-aosc-linux-gnuow</code></li></ul>|
+|正常|<ul><li><code>/opt/lol/local/lib</code></li><li><code>/opt/lol/lib/loongarch64-aosc-linux-gnuow</code></li><li><code>/opt/lol/lib</code></li></ul>|
+
+其中带有 `local` 字样的目录可供用户自助放置一些库文件，以便绕过个别应用所存在的问题。
+
 ### Debian
 
 首先，下载内核模块包 [liblol-dkms_0.1.0_loong64.deb](https://github.com/AOSC-Dev/la_ow_syscall/releases/download/debian%2F0.1.0/liblol-dkms_0.1.0_loong64.deb) 并执行如下命令安装：
