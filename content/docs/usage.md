@@ -103,6 +103,17 @@ Loong Arch Linux 在其软件仓库中提供 libLoL，使用如下命令即可�
 sudo pacman -S la_ow_syscall-dkms liblol
 ```
 
+由于不同发行版的目录布局各异，不同发行版上的 libLoL 库搜索路径之间也存在不同。Loong Arch Linux 上 libLoL 的库搜索路径如下：
+
+<!-- see https://github.com/loongarchlinux/laur/blob/69696a07a29c270f19def53e985e98fe25949ee1/liblol/PKGBUILD -->
+
+|加载阶段|路径（从上到下顺序搜索）|
+|:------:|:---|
+|优先|<ul><li><code>/opt/lol/local/preload-lib</code></li><li><code>/opt/lol/support/lib/loongarch64-aosc-linux-gnuow</code></li></ul>|
+|正常|<ul><li><code>/opt/lol/local/lib</code></li><li><code>/opt/lol/lib/loongarch64-aosc-linux-gnuow</code></li><li><code>/opt/lol/lib</code></li></ul>|
+
+其中带有 `local` 字样的目录可供用户自助放置一些库文件，以便绕过个别应用所存在的问题。
+
 ## 安装应用
 
 您可在[龙芯应用合作社](http://app.loongapps.cn/#/home)或其他分发渠道下载和安装旧世界应用。
