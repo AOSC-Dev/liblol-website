@@ -8,6 +8,11 @@ weight: 2
 
 详见[实现原理](/docs/dev/design)。
 
+## 0.1.9
+
+- glibc 版本更新至 2.41
+- 修复 Binutils 2.44 构建的 libLoL 存在分页对齐错误的问题
+
 ## 0.1.6
 
 - Glibc 版本更新至 2.40；
