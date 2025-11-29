@@ -8,6 +8,11 @@ weight: 2
 
 详见[实现原理](/docs/dev/design)。
 
+## 0.1.10
+
+- glibc 版本更新至 2.42
+- libxcrypt 版本更新至 4.5.2
+
 ## 0.1.9
 
 - glibc 版本更新至 2.41
