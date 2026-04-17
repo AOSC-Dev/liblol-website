@@ -153,7 +153,7 @@ insmod /lib/modules/`uname -r`/kernel/arch/loongarch/ow_syscall/la_ow_syscall.ko
 
 <p>{{< compatibility-icon 5 >}} 
 
-请[点此](https://raw.githubusercontent.com/AOSC-Dev/scriptlets/refs/heads/master/loong64-it/loong64-it.bash)下载 `loong64-it` 脚本，并执行如下命令：
+请[点此](https://raw.githubusercontent.com/AOSC-Dev/loong64-it/refs/heads/master/loong64-it.bash)下载 `loong64-it` 脚本，并执行如下命令：
 
 ```
 bash loong64-it.bash [PACKAGE1] [PACKAGE2] ...
